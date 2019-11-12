@@ -1,7 +1,7 @@
 <?php
 $msg = "";
 
-if (!preg_match("/^[a-zA-Z-]*$/", $_POST["first_name"])){
+if (!preg_match("/^[a-zA-Z-]*$/", isset($_POST["first_name"]))){
   $msg = "Wrong input";
 }
 
@@ -39,14 +39,14 @@ if (!preg_match("/^[a-zA-Z-]*$/", $_POST["first_name"])){
       
         <div class="input-field col s6">
         <i class="material-icons prefix">face</i>
-          <?php if(!preg_match("/^[a-zA-Z-]*$/", $_POST["first_name"])){
+          <?php if(!preg_match("/^[a-zA-Z-]*$/", isset($_POST["first_name"]))){
             $invalid = "invalid";
           } else {
             $invalid = "";
           }
           ?>
-          <input id="first_name" name="first_name" type="text" class="validate <?php echo $invalid ?>" alt="Enter your first name" value="<?php echo $_POST["first_name"] ?>">
-          <span><?php echo $msg ?></span>
+          <input id="first_name" name="first_name" type="text" class="validate <?php if(isset($invalid)){echo($invalid);} ?>" alt="Enter your first name" value="<?php if (isset($_POST["first_name"])){echo ($_POST["first_name"]);} ?>" required>
+          <span><?php if(isset($msg)){echo ($msg);} ?></span>
           <label for="first_name">First Name</label>
         </div>
         <div class="input-field col s6">

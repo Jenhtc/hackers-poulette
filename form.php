@@ -36,7 +36,7 @@ $gender= $_POST["gender"] ;
 $country= $_POST["country"] ;
 $subject= $_POST["subject"] ;
 $message= $_POST["message"] ;
-echo $name;
+
 
 
 /**
